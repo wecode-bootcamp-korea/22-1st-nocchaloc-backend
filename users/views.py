@@ -49,7 +49,7 @@ class SigninView(View):
             data = json.loads(request.body)
             
             if not User.objects.filter(account=data['account']).exists():
-                return JsonResponse({'message':'INVALID_USER'},status=401)
+                return JsonResponse({'message':'INVALID_USER'},status=409)
 
             account       = data['account']
             password      = data['password']
